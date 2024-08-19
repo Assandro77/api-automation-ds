@@ -1,0 +1,29 @@
+{
+  "name": "api-automation-ds",
+  "version": "1.0.0",
+  "description": "API Automation test menggunakan Supertest, Mocha dan Chai",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "SET NODE_ENV=dev && node server.js",
+    "test1": "mocha --timeout 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Assandro77/api-automation-ds.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Assandro77/api-automation-ds/issues"
+  },
+  "homepage": "https://github.com/Assandro77/api-automation-ds#readme",
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "chai-json-schema": "^1.5.1",
+    "mocha": "^10.7.3",
+    "mochawesome": "^7.1.3",
+    "supertest": "^7.0.0"
+  }
+}

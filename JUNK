@@ -1,0 +1,87 @@
+const request = require(`supertest`);
+const assert  = require(`chai`).assert
+const should  = require(`chai`).should
+const expect  = require(`chai`).expect
+const fs = require(`fs`)
+
+var chai = require(`chai`);
+chai.use(require('chai-json-schema'));
+
+
+describe('API Test for "reqres.in"', () => {
+    it('Test - GET all list',async () => {
+        const response = await request ("https://reqres.in/api/unknown").get("list")
+        console.log(response.statusCode)
+
+    });
+    it('Test - POST  Store list',async () => {
+        const response = await request ("https://reqres.in/api/unknown")
+        .post("list")
+        .send(
+            {
+                "data": {
+                    "id": 2,
+                    "name": "fuchsia rose",
+                    "year": 2001,
+                    "color": "#C74375",
+                    "pantone_value": "17-2031"
+                },
+                "support": {
+                    "url": "https://reqres.in/#support-heading",
+                    "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+                }
+            }
+        )
+        
+// describe('API TEST for "restful-api.dev"', () => {
+//     const BASE_URL = "https://api.restful-api.dev/"
+
+//     it('Test - GET All Objects',async () => {
+//         const response = await request(BASE_URL)
+//         .get("objects")
+
+//         //assertion
+//         assert.equal(response.statusCode, 200)
+//         assert.equal(response.body[0].data.color, "Cloudy White")
+//     });
+
+//     it('Test - POST Store Objects',async () => {
+//             const body = {
+//                 "name": "Ini Request  Dari automation Test",
+//                 "data": {
+//                    "year": 2019,
+//                    "price": 1849.99,
+//                    "CPU model": "Intel Core i9",
+//                    "Hard disk size": "1 TB"
+//                 }
+//              }
+        
+            
+
+//         const response = await request(BASE_URL)
+//         .post("objects")
+//         .send(body)
+
+//         console.log(response.statusCode);
+//         console.log(response.body)
+
+//         //Should
+//         should(response.statusCode ===200)
+        
+//         expect(response.statusCode).to.equal(200)
+//         const schemaPath = "resources/JsonSchema/post-object-schema.json"
+
+//         const jsonSchema =  JSON.parse(fs.readFileSync(schemaPath,`utf-8`))
+
+//         assert.jsonSchema(response.body, jsonSchema)
+
+    });
+    it('Test - PUT all list',async () => {
+        const response = await request ("https://reqres.in/api/unknown").get("list")
+        console.log(response.statusCode===200)
+    });
+    it('Test - DELETE all list',async () => {
+        const response = await request ("https://reqres.in/api/unknown").get("list")
+        console.log(response.statusCode===204)
+    });
+});
